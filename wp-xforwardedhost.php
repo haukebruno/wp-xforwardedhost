@@ -9,6 +9,28 @@
  * License: GPL2
  */
 
-if ( isset( $_SERVER['HTTP_X_FORWARDED_HOST'] ) && $_SERVER['HTTP_X_FORWARDED_HOST'] ) {
+$valid_hosts = array(
+  'example.com',
+  'www.example.com'
+);
+
+function is_valid_host ($hosts, $xforwardedhost) {
+
+  foreach ($hosts as $host) {
+    
+    if ($xforwardedhost == $host) {
+
+      return true;
+
+    }
+
+  }
+
+  return false;
+
+}
+
+
+if ( isset( $_SERVER['HTTP_X_FORWARDED_HOST'] ) && $_SERVER['HTTP_X_FORWARDED_HOST'] && is_valid_host($valid_hosts, $_SERVER['HTTP_X_FORWARDED_HOST']) ) {
   $_SERVER['HTTP_HOST'] = $_SERVER['HTTP_X_FORWARDED_HOST'];
 }
