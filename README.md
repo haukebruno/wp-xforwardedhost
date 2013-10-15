@@ -7,7 +7,7 @@ Use wp-xforwardedhost if your requests don't reach your backend with the fronten
 # Installation
 
 1. Create a directory 'mu-plugins' under *wp-content*
-2. Put wp-xforwardedhost.php into it (double check file permissions)
+2. Put *wp-xforwardedhost.php* into it (double check file permissions)
 3. Customize the *valid_hosts* array in line 12
 
 # valid_hosts check
