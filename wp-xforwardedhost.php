@@ -16,17 +16,7 @@ $valid_hosts = array(
 
 function is_valid_host ($hosts, $xforwardedhost) {
 
-  foreach ($hosts as $host) {
-    
-    if ($xforwardedhost == $host) {
-
-      return true;
-
-    }
-
-  }
-
-  return false;
+  return in_array($xforwardedhost, $hosts);
 
 }
 
